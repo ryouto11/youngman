@@ -1,28 +1,15 @@
 @charset "utf-8";
-$main-color:rgb(0, 123, 255);
+@import "_module.scss";
 
+$main-color:rgb(0, 123, 255);
 .container {
     max-width: 1160px;
     max-height: 100%;
     width: 100%;
     margin: 0 auto;
     padding: 0 30px;
+    margin:5px;
 }
-
-// .sub-heading{
-//     display: flex;
-//     gap: 50px;
-//     height: 80px;
-//     width: 100%;
-//     img{
-//         width: 80px;
-//     }
-//     h2{
-//         line-height: 80px;
-//         font-size: 40px;
-//         color: grey;
-//     }
-// }
 .title {
     p {
         color: $main-color;
@@ -35,7 +22,7 @@ html {
 
 body {
     overflow: hidden;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 0.04em;
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
@@ -100,14 +87,22 @@ body {
     justify-content: space-between;
     align-items: center;
     overflow: scroll;
-
+    @include sp{
+        height: 70px;
+    }
     nav {
         display: flex;
         gap: 25px;
+        @include sp{
+            display: none;
+        }
 
         a {
             padding-bottom: 3px;
             position: relative;
+            @media screen and (max-width: 830px) {
+                font-size: 13px;
+            }
 
             &::after {
                 position: absolute;
@@ -132,7 +127,48 @@ body {
     .logo {
         padding: 10px 0;
         width: auto;
-        height: 80px;
+        height: 100%;
+    }
+    .hamburger{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: none;
+        @include sp{
+            display: block;
+        }
+        span{
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            top:50%;
+            transform: translateY(-50%);
+            transition: 0.3s;
+            &:nth-child(1){
+                transform: translateY(-12px);
+            }
+            &:nth-child(3){
+                transform: translateY(10px);
+            }
+            
+        }
+    }
+    .hamburger.active{
+        span{
+            &:nth-child(1){
+                transform: translateY(-50%);
+                rotate: 45deg;
+            }
+            &:nth-child(2){
+                opacity: 0;
+            }
+            &:nth-child(3){
+                transform: translateY(-50%);
+                rotate: -45deg;
+            }
+            
+        }
     }
 }
 
@@ -167,6 +203,9 @@ body {
             // backdrop-filter: blur(10px);
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
             line-height: 1;
+            @include sp{
+                gap:27px;
+            }
             img{
                 width: 70px;
             }
@@ -175,6 +214,10 @@ body {
                     color:white;
                     font-size: 25px;
                     padding-left: 7px;
+                    font-weight: 300;
+                    @include sp{
+                        font-size: 20px;
+                    }
                 }
                 &:nth-child(2){
                     font-size: 55px;
@@ -182,6 +225,9 @@ body {
                     align-items: center;
                     gap:10px;
                     letter-spacing: 0.1em;
+                    @include sp{
+                        font-size: 40px;
+                    }
                     img{
                         width: 80px;
                     }
@@ -189,6 +235,10 @@ body {
                 &:nth-child(3){
                     font-size: 20px;
                     padding-left: 7px;
+                    font-weight: 400;
+                    @include sp{
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -481,8 +531,6 @@ body {
             flex-wrap: wrap;
         }
     }
-
-    .Form-Item:nth-child(5) {}
 
     .Form-Item-Label {
         width: 100%;

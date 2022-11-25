@@ -7,6 +7,7 @@
     <title>ヤングマンホームページ</title>
     <!-- css -->
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./css/_module.scss">
     <link rel="stylesheet" href="./css/stylesheet.min.css">
     <!--  -->
     <!-- google fonts -->
@@ -20,18 +21,22 @@
     <!--  -->
 </head>
 <body>
-    <span class="loader">
+    <!-- <span class="loader">
         <span></span>
-    </span>
+    </span> -->
     <header class="header">
             <h1 class="logo"><img src="./img/logo.png"  alt="ロゴ"></h1>
             <nav>
-                <li><a href="#topics">お知らせ</a></li>
                 <li><a href="#about-us">ヤングマンとは</a></li>
                 <li><a href="#activity">活動内容</a></li>
                 <li><a href="#recruitment">ヤングマンに向いている人</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
             </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
     </header>
     <main class="main">
         <div class="main-visual">
@@ -182,10 +187,6 @@
                 <div class="Form-Item">
                     <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>お名前</p>
                     <input type="text" class="Form-Item-Input" placeholder="例）山田太郎">
-                </div>
-                <div class="Form-Item">
-                    <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>電話番号</p>
-                    <input type="text" class="Form-Item-Input" placeholder="例）000-0000-0000">
                 </div>
                 <div class="Form-Item">
                     <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>メールアドレス</p>
